@@ -1,4 +1,4 @@
-package com.spring.app.security;
+package com.spring.app.security.userAuthInfo;
 
 import com.spring.app.domain.UserEntity;
 import com.spring.app.service.UserService;

@@ -1,7 +1,9 @@
 package com.spring.app.security;
 
+import com.spring.app.security.userAuthInfo.UserInfoService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -37,6 +39,7 @@ public class SecurityConfiguration {
             )
             .authorizeHttpRequests(
                 (auth) -> auth
+                        .requestMatchers(HttpMethod.POST, "/login").permitAll()
                         .anyRequest().authenticated()
             )
             .formLogin(Customizer.withDefaults())
