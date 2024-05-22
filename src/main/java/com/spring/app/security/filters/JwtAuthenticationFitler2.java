@@ -11,11 +11,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import java.io.IOException;
 
-public class JwtAuthenticationFitler extends UsernamePasswordAuthenticationFilter {
+public class JwtAuthenticationFitler2 extends UsernamePasswordAuthenticationFilter {
 
     private AuthenticationManager authenticationManager;
 
-    public JwtAuthenticationFitler(AuthenticationManager authenticationManager) {
+    public JwtAuthenticationFitler2(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
     }
 

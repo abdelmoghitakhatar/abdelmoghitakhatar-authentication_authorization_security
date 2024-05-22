@@ -1,12 +1,24 @@
 package com.spring.app.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data @AllArgsConstructor @NoArgsConstructor
 public class RoleDTO {
 
-    private Long id;
+  private Long id;
 
+  private String roleName;
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getRoleName() {
+    return roleName;
+  }
+
+  public void setRoleName(String roleName) {
+    this.roleName = roleName;
+  }
 }

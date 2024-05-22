@@ -1,37 +1,37 @@
 package com.spring.app.controller;
 
 import com.spring.app.domain.UserEntity;
+import com.spring.app.dto.AuthenticationDTO;
 import com.spring.app.service.UserService;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
 
     private UserService userService;
 
     UserController(UserService userService) {
-        this.userService = userService;
+      this.userService = userService;
     }
 
-    @PostMapping("/user")
-    public UserEntity addUser(@RequestBody UserEntity user){
-        return userService.addUser(user);
+  @GetMapping("/{username}")
+  public UserEntity getOneUser(@PathVariable String username){
+      return userService.findOneUser(username);
     }
 
-    @GetMapping("/user/{username}")
-    public UserEntity getOneUser(@PathVariable String username){
-        return userService.findOneUser(username);
-    }
-
-    @GetMapping("/users")
+    @GetMapping("/all")
     public List<UserEntity> getAllUsers(){
         return userService.findAllUsers();
     }
 
-    @PutMapping("/user")
+    @PutMapping("")
     public void addRoleToUser(@RequestParam String username, @RequestParam String roleName){
         userService.addRoleToUser(username, roleName);
     }
